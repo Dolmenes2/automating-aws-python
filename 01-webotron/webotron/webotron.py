@@ -1,15 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-"""Webotron: Deploy websites with AWS.
-
-Webotron automates the process of deploying static websites on aws.
+"""Webotron: Deploy websites with aws.
+Webotron automates the process of deploying static websites to AWS.
 - Configure AWS S3 buckets
   - Create them
   - Set them up for static website hosting
   - Deploy local files to them
-- Configure DNS with AWS Route53
-- Configure a Content Delivery Network and SSL with AWS
+- Configure DNS with AWS Route 53
+- Configure a Content Delivery Network and SSL with AWS CloudFront
 """
 
 import boto3
@@ -23,7 +22,8 @@ bucket_manager = None
 
 
 @click.group()
-@click.option('--profile', default=None, help="Use a given AWS profile.")
+@click.option('--profile', default=None,
+              help="Use a given AWS profile.")
 def cli(profile):
     """Webotron deploys websites to AWS."""
     global session, bucket_manager
@@ -32,8 +32,8 @@ def cli(profile):
     if profile:
         session_cfg['profile_name'] = profile
 
-        session = boto3.Session(**session_cfg)
-        bucket_manager = BucketManager(session)
+    session = boto3.Session(**session_cfg)
+    bucket_manager = BucketManager(session)
 
 
 @cli.command('list-buckets')
@@ -47,7 +47,8 @@ def list_buckets():
 @click.argument('bucket')
 def list_bucket_objects(bucket):
     """List objects in an s3 bucket."""
-    for obj in bucket_manager.all_objects(bucket): print(obj)
+    for obj in bucket_manager.all_objects(bucket):
+        print(obj)
 
 
 @cli.command('setup-bucket')
@@ -57,6 +58,7 @@ def setup_bucket(bucket):
     s3_bucket = bucket_manager.init_bucket(bucket)
     bucket_manager.set_policy(s3_bucket)
     bucket_manager.configure_website(s3_bucket)
+
     return
 
 
@@ -70,4 +72,4 @@ def sync(pathname, bucket):
 
 
 if __name__ == '__main__':
-	        cli()
+    cli()
