@@ -14,7 +14,7 @@ Webotron automates the process of deploying static websites to AWS.
 import boto3
 import click
 
-from bucket import BucketManager
+from webotron.bucket import BucketManager
 
 
 session = None
@@ -73,3 +73,4 @@ def sync(pathname, bucket):
 
 if __name__ == '__main__':
     cli()
+	

@@ -1,3 +1,7 @@
+01-webotron/.gitignore
+01-webotron/Pipfile.lock
+01-webotron/ipythonsession2.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
