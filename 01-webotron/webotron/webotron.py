@@ -16,7 +16,6 @@ import click
 
 from webotron.bucket import BucketManager
 
-
 session = None
 bucket_manager = None
 
