@@ -2,9 +2,10 @@
 ./01-webotron/Pipfile.lock
 ./01-webotron/ipythonsession2.py
 ./02-notifon/*.pem
-./02-notifon/notifier/.serverless
 ipythonsession2.py
 02-notifon/handlerOld.py
+02-notifon/config.dev.json
+02-notifon/notifier/.serverless/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
