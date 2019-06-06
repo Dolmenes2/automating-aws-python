@@ -4,6 +4,7 @@
 ./02-notifon/*.pem
 ./02-notifon/notifier/.serverless
 ipythonsession2.py
+02-notifon/handlerOld.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
