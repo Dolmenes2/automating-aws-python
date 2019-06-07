@@ -21,7 +21,7 @@ service: notifon-notifier # NOTE: update this with your service name
 
 provider:
   name: aws
-  runtime: python3.7
+  runtime: python2.7
   profile: ${file(../config.${self:provider.stage}.json):notifier.profile}
   region: us-east-2
   environment:
@@ -59,6 +59,10 @@ provider:
 #  exclude:
 #    - exclude-me.py
 #    - exclude-me-dir/**
+package:
+  exclude:
+    - a/** # virtualenv
+    
 
 functions:
   post-to-slack:
@@ -119,3 +123,6 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+plugins:
+  - serverless-python-requirements

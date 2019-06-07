@@ -5,10 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 ipython = "*"
+requests = "*"
 
 [packages]
 boto3 = "*"
 requests = "*"
+pip = "*"
 
 [requires]
-python_version = "3.5"
+python_version = "2.7"

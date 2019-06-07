@@ -6,6 +6,8 @@ ipythonsession2.py
 02-notifon/handlerOld.py
 02-notifon/config.dev.json
 02-notifon/notifier/.serverless/
+02-notifon/notifier/a/
+02-notifon/notifier/node_modules/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
