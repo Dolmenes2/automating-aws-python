@@ -18,7 +18,6 @@ def start_label_detection(bucket, key):
 
 
 def start_processing_video(event, context):
-
     for record in event['Records']:
         start_label_detection(
             record['s3']['bucket']['name'],
